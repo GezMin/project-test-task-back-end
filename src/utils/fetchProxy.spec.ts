@@ -1,8 +1,8 @@
 import { fetchProxy } from './fetchProxy';
 
 describe('fetchProxy', () => {
-  it('should fetch data proxy ', async () => {
-    const url = '45.196.48.9:5435';
+  it('should fetch data through proxy successfully', async () => {
+    const url = 'http://worldclockapi.com/api/json/utc/now';
     try {
       const data = await fetchProxy(url);
       expect(data).toBeDefined();
