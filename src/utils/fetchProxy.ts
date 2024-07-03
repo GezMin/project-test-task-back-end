@@ -20,17 +20,7 @@ export async function fetchProxy(url: string): Promise<any> {
   };
 
   try {
-    const response = await axios.get(url, {
-      proxy: {
-        host: proxy.host,
-        port: proxy.port,
-        auth: {
-          username: proxy.auth.username,
-          password: proxy.auth.password,
-        },
-      },
-    });
-
+    const response = await axios.get(url, { proxy });
     return response.data;
   } catch (error) {
     throw error;

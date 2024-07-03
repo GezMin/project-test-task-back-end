@@ -15,6 +15,12 @@ import { CreateUserDto } from './dto/create-user.dto';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @Get()
+  async getAll() {
+    const users = await this.usersService.getAll();
+    return { statusCode: 200, message: 'SUCCESS', users };
+  }
+
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     try {

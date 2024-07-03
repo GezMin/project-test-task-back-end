@@ -27,6 +27,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.2",
+    "@types/bull": "^4.10.0",
     "axios": "^1.7.2",
     "bull": "^4.15.0",
     "cache-manager-ioredis": "^2.1.0",

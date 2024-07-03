@@ -5,6 +5,7 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { User } from './user.entity';
+import { UserStatusProcessor } from './user-status.processor';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { User } from './user.entity';
     }),
     CacheModule.register(),
   ],
-  providers: [UsersService],
+  providers: [UsersService, UserStatusProcessor],
   controllers: [UsersController],
   exports: [UsersService],
 })

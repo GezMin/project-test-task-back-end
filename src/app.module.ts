@@ -28,10 +28,10 @@ import { UsersModule } from './users/users.module';
     }),
     CacheModule.registerAsync({
       useFactory: async () => ({
-        store: redisStore, // Используем импортированный объект
+        store: redisStore,
         host: 'localhost',
         port: 6379,
-        ttl: 1800, // Время жизни кэша 30 минут
+        ttl: 1800,
       }),
     }),
     UsersModule,

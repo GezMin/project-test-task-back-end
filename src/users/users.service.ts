@@ -22,6 +22,10 @@ export class UsersService {
     @Inject(CACHE_MANAGER) private cacheManager: CacheStore,
   ) {}
 
+  async getAll(): Promise<User[]> {
+    return this.usersRepository.find();
+  }
+
   async create(createUserDto: CreateUserDto): Promise<User> {
     const { name, email, password } = createUserDto;
     const existingUser = await this.usersRepository.findOneBy({ email });
@@ -56,5 +60,9 @@ export class UsersService {
     await this.cacheManager.set(`user-${id}`, user, { ttl: 1800 });
 
     return user;
+  }
+
+  async updateCache(userId: number, user: User): Promise<void> {
+    await this.cacheManager.set(`user-${userId}`, user, { ttl: 1800 });
   }
 }
