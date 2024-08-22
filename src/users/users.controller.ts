@@ -34,7 +34,7 @@ export class UsersController {
     }
   }
 
-  @Get('/get-user-by-id')
+  @Get('get-user-by-id')
   async findOne(@Query('id') id: number) {
     const user = await this.usersService.findOne(id);
     if (!user) {
